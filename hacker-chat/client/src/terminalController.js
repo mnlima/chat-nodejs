@@ -85,22 +85,5 @@ export default class TerminalController {
     this.#registerEvents(eventEmitter, components)
     components.input.focus()
     components.screen.render()
-
-    const users = ['mateus lima']
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-    users.push('emily')
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-    users.push('pablo')
-    eventEmitter.emit(constants.events.app.STATUS_UPDATED, users)
-    users.push('felipe', 'lucas')
-
-    const message = ['iae', 'salve galera', 'como voces estão?','de boa e voces?', 'tranquilo também', 'então ta certo, até mais', 'até mais', 'fui'];
-
-    
-    for (let index = 0; index < message.length; index++) {
-      await setTimeout(() => {
-        eventEmitter.emit(constants.events.app.MESSAGE_RECEIVED, { message: message[index], userName: users[index >= users.length ? index - users.length : index] })
-      },index * 1000)
-    }
   }
 }
