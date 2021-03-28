@@ -13,7 +13,8 @@ export default class TerminalController {
   }
 
   #getUserCollor(userName) {
-    if (this.#usersCollors.has(userName)) return this.#usersCollors.get(userName)
+    if (this.#usersCollors.has(userName))
+      return this.#usersCollors.get(userName)
 
     const collor = this.#pickCollor()
     this.#usersCollors.set(userName, collor)
@@ -24,7 +25,7 @@ export default class TerminalController {
   #onInputReceived(eventEmitter) {
     return function () {
       const message = this.getValue()
-      console.log(message)
+      eventEmitter.emit(constants.events.app.MESSAGE_SENT, message)
       this.clearValue()
     }
   }

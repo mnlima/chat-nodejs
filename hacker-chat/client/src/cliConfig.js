@@ -17,14 +17,14 @@ export default class CliConfig {
     for (const key in commands) {
       const index = parseInt(key)
       const command = commands[key]
-      const commandPrefix = '--'
 
+      const commandPrefix = '--'
       if (!command.includes(commandPrefix)) continue;
+
       cmd.set(
         command.replace(commandPrefix, ''),
         commands[index + 1]
       )
-
     }
     return new CliConfig(Object.fromEntries(cmd))
   }

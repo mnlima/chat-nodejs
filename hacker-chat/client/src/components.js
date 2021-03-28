@@ -6,6 +6,7 @@ export default class ComponentsBuilder {
   #chat
   #status
   #activityLog
+
   constructor() { }
 
   #baseComponent() {
